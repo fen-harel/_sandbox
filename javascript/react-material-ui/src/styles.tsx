@@ -32,3 +32,5 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default useStyles;
+
+const fn = (() => {});

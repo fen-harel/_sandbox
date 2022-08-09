@@ -1,7 +1,8 @@
 import React from "react";
 import { Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
-import  Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
+
 import useStyles from "./styles";
 
 const cards = [1, 2, 3, 4];

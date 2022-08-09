@@ -1,2 +1,7 @@
 
-javascript/react-social-web/server/node_modules
+javascript/**/node_modules
+javascript/**/.parcel-cache
+javascript/**/dist
+
+python/**/__pycache__
+rust/**/target
