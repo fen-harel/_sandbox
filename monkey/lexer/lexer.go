@@ -2,7 +2,6 @@ package lexer
 
 import (
 	"example/monkey/token"
-	"fmt"
 )
 
 type Lexer struct {
@@ -76,29 +75,21 @@ func (l *Lexer) NextToken() token.Token {
 		tok = newToken(token.GT, l.ch)
 	case ';':
 		tok = newToken(token.SEMICOLON, l.ch)
-		fmt.Println(tok)
 	case '(':
 		tok = newToken(token.LPAREN, l.ch)
-		fmt.Println(tok)
 	case ')':
 		tok = newToken(token.RPAREN, l.ch)
-		fmt.Println(tok)
 	case ',':
 		tok = newToken(token.COMMA, l.ch)
-		fmt.Println(tok)
 	case '+':
 		tok = newToken(token.PLUS, l.ch)
-		fmt.Println(tok)
 	case '{':
 		tok = newToken(token.LBRACE, l.ch)
-		fmt.Println(tok)
 	case '}':
 		tok = newToken(token.RBRACE, l.ch)
-		fmt.Println(tok)
 	case 0:
 		tok.Literal = ""
 		tok.Type = token.EOF
-		fmt.Println(tok)
 	default:
 		if isLetter(l.ch) {
 			tok.Literal = l.readIdentifier()

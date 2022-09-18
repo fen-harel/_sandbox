@@ -29,8 +29,8 @@ const (
 	EOF     = "EOF"     // End of File tells our parser where stop
 
 	// Identifiers + Literals
-	IDENT = "INDENT" // add, foobar, x, y...
-	INT   = "INT"    // 1233423
+	IDENT = "IDENT" // add, foobar, x, y...
+	INT   = "INT"   // 1233423
 
 	// Operators
 	ASSIGN   = "="
