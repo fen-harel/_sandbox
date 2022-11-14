@@ -40,7 +40,7 @@ func (ls *LetStatement) TokenLiteral() string {
 }
 
 type Identifier struct {
-	Token token.Token // toke.IDENT token
+	Token token.Token // token.IDENT token
 	Value string
 }
 
