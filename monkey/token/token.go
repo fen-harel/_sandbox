@@ -1,5 +1,6 @@
 package token
 
+// Token.IDENT type match
 var keywords = map[string]TokenType{
 	"fn":     FUNCTION,
 	"let":    LET,
@@ -17,13 +18,13 @@ func LookUpIdent(ident string) TokenType {
 	return IDENT
 }
 
-type TokenType string
-
 type Token struct {
 	Type    TokenType
 	Literal string
 }
+type TokenType string
 
+// Token types
 const (
 	ILLEGAL = "ILLEGAL" // Unknown Token/Character
 	EOF     = "EOF"     // End of File tells our parser where stop

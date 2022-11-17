@@ -7,10 +7,11 @@ import (
 type Lexer struct {
 	input        string
 	position     int  // current position in input (points to current char)
-	readPosition int  // current reading position in input (after current char)
+	readPosition int  // next reading position in input (after current char)
 	ch           byte // current char under examination
 }
 
+// Initiates Lexer
 func New(input string) *Lexer {
 	l := &Lexer{input: input}
 	l.readChar()
@@ -25,6 +26,8 @@ func (l *Lexer) peekChar() byte {
 	}
 }
 
+// Sets lexer.ch to input and
+// Moves position forward
 func (l *Lexer) readChar() {
 	if l.readPosition >= len(l.input) {
 		l.ch = 0
@@ -35,12 +38,16 @@ func (l *Lexer) readChar() {
 	l.readPosition += 1
 }
 
+// Ignores whitespace and moves
+// onto next input
 func (l *Lexer) skipWhitespace() {
 	for l.ch == ' ' || l.ch == '\t' || l.ch == '\n' || l.ch == '\r' {
 		l.readChar()
 	}
 }
 
+// Matches lexer.ch according to token type
+// And returns the token
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 
@@ -119,6 +126,7 @@ func isDigit(ch byte) bool {
 	return '0' <= ch && ch <= '9'
 }
 
+// Checks if unkown identifier is only letters
 func (l *Lexer) readIdentifier() string {
 	position := l.position
 	for isLetter(l.ch) {
@@ -131,6 +139,7 @@ func isLetter(ch byte) bool {
 	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
 }
 
+// Uses input and its corresponding type and creates token
 func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{
 		Type:    tokenType,
