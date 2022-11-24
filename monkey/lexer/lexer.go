@@ -114,6 +114,8 @@ func (l *Lexer) NextToken() token.Token {
 	return tok
 }
 
+// Returns token after confirming it
+// is all digits
 func (l *Lexer) readNumber() string {
 	position := l.position
 	for isDigit(l.ch) {
@@ -122,6 +124,7 @@ func (l *Lexer) readNumber() string {
 	return l.input[position:l.position]
 }
 
+// Checks if inut is all digits
 func isDigit(ch byte) bool {
 	return '0' <= ch && ch <= '9'
 }
@@ -135,6 +138,7 @@ func (l *Lexer) readIdentifier() string {
 	return l.input[position:l.position]
 }
 
+// Checks if input is all letters
 func isLetter(ch byte) bool {
 	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
 }

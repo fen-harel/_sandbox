@@ -9,9 +9,6 @@ import (
 )
 
 func main() {
-	// myLex := lexer.New("=ij")
-	// token := myLex.NextToken()
-	// fmt.Println(token)
 	user, err := user.Current()
 	if err != nil {
 		panic(err)

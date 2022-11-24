@@ -21,6 +21,9 @@ func Start(in io.Reader, out io.Writer) {
 		}
 
 		line := scanner.Text()
+
+		// Initiates lexer & allows to
+		// create new input to tokenize
 		l := lexer.New(line)
 
 		for tok := l.NextToken(); tok.Type != token.EOF; tok = l.NextToken() {
